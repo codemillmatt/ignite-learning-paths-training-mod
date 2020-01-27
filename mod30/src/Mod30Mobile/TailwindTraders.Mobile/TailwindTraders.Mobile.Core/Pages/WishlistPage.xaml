@@ -13,34 +13,32 @@
     <ContentPage.BindingContext>
         <viewmodels:WishlistViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <StackLayout>            
-            <CollectionView ItemsSource="{Binding WishlistItems}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Padding="10,10,10,0">
+    <ContentPage.Content>        
+        <CollectionView ItemsSource="{Binding WishlistItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10,10,10,0">
                             
-                            <Grid HeightRequest="200">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <ffimageloading:CachedImage
-                                    Grid.Row="0" Grid.RowSpan="2"
-                                    Source="{Binding FullImageUrl}"
-                                    BackgroundColor="Black"/>
-                                <Label Grid.Row="1"
-                                    Padding="20,0"
-                                    TextColor="White"
-                                    BackgroundColor="{StaticResource Accent2Color}"
-                                    FontSize="20 "
-                                    Text="{Binding Description}"/>
-                            </Grid>                                                                
+                        <Grid HeightRequest="200">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <ffimageloading:CachedImage
+                                Grid.Row="0" Grid.RowSpan="2"
+                                Source="{Binding FullImageUrl}"
+                                BackgroundColor="Black"/>
+                            <Label Grid.Row="1"
+                                Padding="20,0"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource Accent2Color}"
+                                FontSize="20 "
+                                Text="{Binding Description}"/>
+                        </Grid>                                                                
                             
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>        
     </ContentPage.Content>
 </ContentPage>
