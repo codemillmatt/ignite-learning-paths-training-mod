@@ -37,7 +37,7 @@
                 <ActivityIndicator Color="Black" IsRunning="{Binding IsBusy}"/>
                 <Label Text="RECOMMENDED" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
                 
-                <CarouselView ItemsSource="{Binding RecommendedCategories}" 
+                <!--<CarouselView ItemsSource="{Binding RecommendedCategories}" 
                               HeightRequest="250" PeekAreaInsets="55">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
@@ -55,7 +55,32 @@
                             </Grid>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
-                </CarouselView>
+                </CarouselView>-->
+
+                
+                <StackLayout BindableLayout.ItemsSource="{Binding RecommendedCategories}"
+                             HeightRequest="250" Orientation="Horizontal">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5" HeightRequest="200" WidthRequest="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ffimageloading:CachedImage Grid.Row="0" Grid.Column="0"
+                                    Source="{Binding ImageName}" Aspect="AspectFill" />
+                                <Button Text="{Binding CategoryName}" Grid.Row="0" Grid.Column="0" 
+                                    HorizontalOptions="Center" VerticalOptions="Center"
+                                    CornerRadius="24" HeightRequest="48"
+                                    Command="{Binding NavigateCommand}" CommandParameter="{Binding CategoryAbbreviation}" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                    
 
                 <Label Text="POPULAR PRODUCTS" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
                 <CarouselView ItemsSource="{Binding PopularProducts}" HeightRequest="450" Margin="0,30" PeekAreaInsets="55">
@@ -67,17 +92,17 @@
                 </CarouselView>
                 
                 <Label Text="PREVIOUSLY SEEN" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center" />
-                <CollectionView ItemsSource="{Binding PreviouslySeenProducts}" HeightRequest="350">
-                    <CollectionView.ItemTemplate>
+                <StackLayout HeightRequest="350"
+                             BindableLayout.ItemsSource="{Binding PreviouslySeenProducts}">
+                    <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <views:PreviouslySeenProductView
                                 ProductName="{Binding Name}" 
                                 ProductImage="{Binding Image}" 
                                 ProductCost="{Binding Price}"/>
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>    
-                </CollectionView>
-                
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
                 
             </StackLayout>
         </ScrollView>
