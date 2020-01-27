@@ -29,8 +29,7 @@ namespace TailwindTraders.Mobile.iOS
         {
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             DependencyService.Register<IXSnack, XSnackImplementation>();
-
-            global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            
             global::Xamarin.Forms.Forms.Init();
                        
             LoadApplication(new App());
