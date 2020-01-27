@@ -11,9 +11,7 @@
     <ContentPage.BindingContext>
         <viewmodels:ProductCategoryCollectionViewModel/>
     </ContentPage.BindingContext>
-
     
-
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Products}"
                         SelectionMode="Single" 
@@ -24,8 +22,8 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <views:ProductGridView BackgroundColor="White" ProductCost="{Binding Price}" ProductImage="{Binding Image}" ProductName="{Binding Name}" 
-                                           HeightRequest="250" Padding="10,40,10,10"/>
+                    <views:ProductGridView BackgroundColor="#efefef" ProductCost="{Binding Price}" ProductImage="{Binding Image}" ProductName="{Binding Name}" 
+                                           HeightRequest="250" Padding="10,20,10,10"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
